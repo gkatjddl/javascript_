@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수복습</title>
+  <style>
+    .box-class{
+      background: yellowgreen;
+      padding: 15px;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="box-class" id="box-id">
+    <p id="box-text">버튼을 누르면 창이 열립니다</p>
+    <button onclick="상자닫기()">닫기</button>
+  </div>  
+
+  <button onclick="상자열기('아이디를 입력하세요')">열기</button>
+  <button onclick="상자열기('비밀번호를 입력하세요')">열기2</button>
+  <!-- 열기1:아이디를 입력하세요-->
+  <script>
+    // 변수 : var,let,const,값을 저장하는공간
+    // 함수 : function, 코드를 저장하는 공간
+    // 함수(코드를 저장한 공간)에서 그때그때 바꿔주고 싶은 부분이 있다 : 매기변수
+    // 매개변수 : 함수의 소괄호 안에다가 넣는다
+    // 콜랙함수 : 매개변수로 쓰이는 함수
+    // style === 스타일을
+    // innerHTML === 내용을
+    function 상자열기(매개변수){
+      //box-class의 display 스타일을 block으로 바꾸어라
+      document.getElementById('box-id').style.display= 'block'
+      // HTML 문서 === document
+      // ~에서 === .
+      // getElementById === 이런 아이디를 찾아라
+      document.getElementById('box-text').innerHTML= 매개변수;
+    }
+    function 상자닫기(){
+      document.getElementById('box-id').style.display= 'none'
+    }
+  </script>
+</body>
+</html>

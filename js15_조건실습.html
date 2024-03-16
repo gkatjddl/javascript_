@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>다크모드</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .mode-btn{
+      color: white;
+      background: black;
+    }
+    .top-nav{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: lightgray;
+      padding: 10px;
+    }
+    .back-white{
+      background: white;
+      color: black;
+    }
+    .back-black{
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="top" class= "top-nav back-white">
+      <h3>javasSript</h3>
+      <button id="mode-btn" class="mode-btn">다크모드</button>
+    </div>
+    <div id="bottom" class="main-box back-white">
+      <p>올해 연도는?</p>
+    
+      <input type="text" id="year-input">
+      <button id="submit-btn" class="back-white">제출</button>
+      <p id="result"></p> <!-- 결과를 표시할 요소 -->
+    </div>
+  </div>
+
+  <script>
+    var 모드 = 0;
+    document.getElementById('mode-btn').addEventListener('click', function(){
+      모드++;   
+      // 모드가 짝수면 라이트 모드, 홀수면 다크 모드로 전환
+      if (모드 % 2 == 0) {
+        document.getElementById('top').classList.remove('back-black');
+        document.getElementById('top').classList.add('back-white');
+        document.getElementById('bottom').classList.remove('back-black');
+        document.getElementById('bottom').classList.add('back-white');
+        document.getElementById('mode-btn').classList.remove('back-black');
+        document.getElementById('mode-btn').classList.add('back-white');
+        document.getElementById('mode-btn').innerHTML = '다크모드';
+      } else {
+        // 다크 모드로 전환
+        document.getElementById('top').classList.remove('back-white');
+        document.getElementById('top').classList.add('back-black');
+        document.getElementById('bottom').classList.remove('back-white');
+        document.getElementById('bottom').classList.add('back-black');
+        document.getElementById('mode-btn').classList.remove('back-white');
+        document.getElementById('mode-btn').classList.add('back-black');
+        document.getElementById('mode-btn').innerHTML = '라이트 모드';
+      }
+    });
+
+    // 제출 버튼 클릭 시 처리할 함수
+    document.getElementById('submit-btn').addEventListener('click', function(){
+      // 입력된 연도 가져오기
+      var year = document.getElementById('year-input').value;
+      // 결과를 표시할 요소 가져오기
+      var resultElement = document.getElementById('result');
+      // 입력된 연도가 2024인지 확인하여 메시지 표시
+      if (year === '2024') {
+        resultElement.textContent = '정답입니다!';
+      } else {
+        resultElement.textContent = '오답입니다!';
+      }
+    });
+  </script>
+</body>
+</html>

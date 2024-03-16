@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트 복습</title>
+</head>
+<body>
+  <script>
+    // 변수,함수,조건문
+    // 값을 저장하는 공간
+    // 공간을 처음 만들때만 var/let/const 라고 붙혀준다
+    // 기존에 만든 공간(변수)를 재활용할때면  var/let/const 를 생략한다
+    // 변수(공간)을 사용하는 이유 : 자주 사용할 값을 저장해놓기 위해
+
+    // 함수 : 코드를 저장하는 공간
+    // 공간을 처음 만들때만 function 이라고 붙혀준다
+    // 기존에 만든 함수(코드뭉치)를 재활용할때는 function을 생략한다
+    // 함수를 사용하는 이유 : 코드를 재활용하기 위해
+    // function 함수이름(){}
+    // () 안에는 다시 쓸때마다 바꿔주고 싶은 값을 넣어주는 공간(매개변수)
+    function 같은지비교하기(숫자1,숫자2){
+      // 들어온 숫자1과 숫자2가 같은지 비교한다음
+      // 같은면 true라고 알려주고
+      // 다르면 true라고 알려주는 함수만들기
+
+      // 조건문 : if(){}
+      // 조건문은 상황에 따라 다른 코드를 실행하는 용도
+      if(숫자1 === 숫자2) // 숫자1과 숫자2가 같은지 
+      {  
+        //같으면 true
+        return true
+      }
+      else
+      {
+        // 아니라면 false라고 알려줘
+        return false
+      }
+      // 재활용 할때는 함수이름()
+    }
+    // 만약 return 값이 있다면 변수로 받는다
+    var 함수결과 = 같은지비교하기(3,4)
+    console.log(함수결과) // 기록을 남기는 함수 : console.log(함수이름)
+    function 작은값을찾는기능(숫자1, 숫자2)
+    {
+      if(숫자1 < 숫자2) // 만약 숫자1이 숫자2보다 작았다
+      {
+        return 숫자1
+        // 숫자1을 알려준다
+      }
+      else
+      {
+        return 숫자2
+        // 숫자2를 알려준다
+      }
+    }
+    var 작은값 = 작은값을찾는기능(5,8)
+    console.log(작은값) // 5출력
+    var 작은값 = 작은값을찾는기능(60,120)
+    console.log(작은값) // 60출력
+    // 놀이기구탑승조건검사
+    // 130cm미만이면 탑승불가
+    // 130~190cm이면 탑승가능
+    // 190cm 초과이면 탑승불가
+    function 놀이기구탑승조건(tall)
+    {
+      if(tall > 130 || tall < 190)
+      {
+        return 탑승가능
+      }
+      else{
+        return 탑승불가
+      }
+    }
+    var 탑승결과 = 놀이기구탑승조건(129)
+    console.log(탑승결과)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건문</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .top-nav{
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px; /*위아래 0,오른쪽왼쪽 30px*/
+      background: lightgray;
+    }
+    li{
+      display: inline;
+      padding: 25px;
+    }
+    .top-nav li{
+      display:inline-block;
+      padding: 15px;
+    }
+    .text{
+      padding-left: 10px;
+    }
+    ul.text{
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
+    .second-logo{
+      list-style-type: none;
+    }
+    .dowm-nav{
+      background: rgba(29, 3, 3, 0.808);
+      color:white;
+      display: flex;
+      z-index: 5;
+      height: 0;
+      visibility: hidden;
+    }
+    .dowm-nav h3{
+      margin-top: 0;
+    }
+    .dowm-nav ul{
+      padding-left:0;
+    }
+    .dowm-nav div{
+      padding: 10px 30px;
+    }
+    ul{
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- 네비게이션 : 로고를 클릭하면 밑에있는 -->
+  <div class="top-nav">
+    <h2 class="top-logo" id="logo">로고</h2>
+    <ul class="text">
+      <li>커피</li>
+      <li>라떼</li>
+      <li>주스</li>
+      <li>티</li>
+    </ul>
+  </div>
+  <div class="dowm-nav">
+    <div>
+      <h3 style="color: white;margin-top: 0;" >커피</h3>
+      <ul>
+      <li>아메리카노</li>
+      <li>콜드브루</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color: white;margin-top: 0;" >라떼</h3>
+      <ul>
+      <li>커피라떼</li>
+      <li>콜드브루라떼</li>
+      </ul>
+    </div>
+  </div>
+  <script>
+var down_nav_flag = 0;
+  
+  document.getElementById('logo').addEventListener('click', function(){
+    if(down_nav_flag === 0){
+      down_nav_flag = 1;
+      document.querySelector('.dowm-nav').style.height = 'auto';
+      document.querySelector('.dowm-nav').style.visibility = 'visible';
+    } else if(down_nav_flag === 1){
+      down_nav_flag = 0;
+      document.querySelector('.dowm-nav').style.height = '0';
+      document.querySelector('.dowm-nav').style.visibility = 'hidden';
+    }
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>조건실습</title>
+  <style>
+    body{
+      margin: 0;
+    }
+  .top-nav{
+    justify-content: space-between;
+    display: flex;
+    background: whitesmoke;
+    align-items: center;
+    padding: 0 20px;
+  }
+  .sub-logo{
+    display: flex;
+    list-style: none;
+    margin: 0;
+  }
+  .sub-logo li{
+    padding: 20px;
+  }
+  .down-nav{
+    background: black;
+    color:white;
+    display: none;
+    /* z축으로 띄워야지 (position)을 사용가능*/
+    position: fixed;
+    width: 100%;
+    /*
+    position은 
+    static(기본)
+    relative (내 위치를 기준으로)
+    absolute (relative를 각고있는 부모를 기준으로)
+    fixed (내 화면을 기준으로)
+    sticky( 내가보는 현재화면(스크롤)을 기준으로)
+    */
+  }
+  .down-nav div{
+    padding: 0 15px;
+  } 
+  .down-nav li{
+    list-style: none;
+  }
+  .down-nav ul{
+    padding: 0;
+  }
+  .back-black{
+    width: 100%;
+    background: black;
+    height: 100vh;
+    position: fixed; /* 전체화면 기준으로 동작(z인덱스 사용 가능)*/
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+
+  }
+  .back-white{
+    background: white;
+    width: 400px;
+    height: 400px;
+    padding: 30px;
+  }
+  .back-white input[type="text"],
+  .back-white input[type="password"]
+  {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    <h3 id="top-logo">로고</h3>
+    <ul class="sub-logo" id="top-show-down">
+      <li>coffee</li>
+      <li>latte</li>
+      <li>tea</li>
+    </ul>
+  </div>
+  <div class="down-nav">
+    <div class="coffee">
+      <h3>coffee</h3>
+      <ul>
+        <li>아메리카노</li>
+        <li>콜드브루</li>
+        <li>...</li>
+    </div>
+    <div class="latte">
+      <h3>latte</h3>
+      <ul>
+        <li>커피라떼</li>
+        <li>콜드브루라떼</li>
+        <li>...</li>
+    </div>
+    <div class="tea">
+      <h3>tea</h3>
+      <ul>
+        <li>유자차</li>
+        <li>레몬차</li>
+        <li>...</li>
+    </div>
+  </div>
+  <!-- 버튼을 클릭하면 doModal() 이라는 함수를 사용-->
+  <button onclick="doModal()">새로운 창 열기</button>
+  <div class="back-black">
+    <div class="back-white">
+      <h4>제목</h4>
+      <form>
+        <input type="text" placeholder="아이디를 입력하세요">
+        <input type="password" placeholder="비밀번호를 입력하세요">
+        <!-- submit : 백엔드로 전달 O -->
+        <!-- button : 백엔드로 전달 X -->
+        <input type="submit" value="로그인">
+        <input type="button" value="닫기" onclick="closeModal()">
+      </form>
+    </div>
+  </div>
+
+  <script>
+    var 상태체크 = false
+    // html에서 top-logo 라는 아이디를 찾아서 클릭이벤트를 줘라
+    document.getElementById('top-logo').addEventListener('click', function(){
+      if(상태체크 === false){
+        // .down-nav를 display:flex로
+        // + 상태체크
+        document.querySelector('.down-nav').style.display = 'flex'
+        상태체크 = true
+      }
+      else
+      {
+        document.querySelector('.down-nav').style.display = 'none'
+        상태체크 = false
+        // .down-nav를 display:none으로
+        // + 상태관리
+      }
+    })
+    // 콜랙함수 : 매개변수로 사용되는 함수
+    // 만약 상태가 안보여주는 상태라면 보여주게 바꿔라(flex)
+    // 만약 상태가 보여주는 상태라면 안보이게 바꿔라(none)
+    
+    // html에서 top-show-down 이라는 아이디를 찾고 마우스오버 이벤트를 줘라
+    // flex
+    document.getElementById('top-show-down').addEventListener('mouseover',function(){
+      if(상태체크 === false){
+        document.querySelector('.down-nav').style.display = 'flex'
+        상태체크 = true
+      } 
+      
+    })
+    // html에서 top-show-down 이라는 아이디를 찾고 마우스아웃 이벤트를 줘라
+    // none
+    document.getElementById('top-show-down').addEventListener('mouseout',function(){
+      if(상태체크 === true){
+        document.querySelector('.down-nav').style.display = 'none'
+        상태체크 = false
+      } 
+      
+    })
+    function doModal(){
+      //평소에는 숨겨놓은 창을 보여주게 바꿔야지
+      /*
+      height: 0; /*높이0
+      visibility: hidden; /*내용물 감춤
+      opacity: 0; /*투명하게
+      height: 100%;
+      opacity: 80%;
+    */
+      document.querySelector('.back-black').style.visibility = 'visible'
+      document.querySelector('.back-black').style.height = '100%'
+      document.querySelector('.back-black').style.opacity = '80%'
+    }
+    function closeModal(){
+      document.querySelector('.back-black').style.visibility = 'hidden'
+      document.querySelector('.back-black').style.height = '0'
+      document.querySelector('.back-black').style.opacity = '0'
+      /*
+      visibility : hidden;
+      height : 0;
+      opacity : 0;
+      */
+    }
+  </script>
+  
+</body>
+</html>

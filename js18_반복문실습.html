@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>탭기능 만들기</title>
+  <style>
+    .tap_container{
+      width: 500px;
+      height: 300px;
+      border: 1px solid yellowgreen;
+    }
+    .tap_button{
+      color: black;
+    }
+    .tap_container li{
+      font-size: 16px;
+      padding: 10px 30px;
+      display: inline-block;
+      border: 1px solid black;
+    }
+    .tap_content{
+      border: 1px solid black;
+    }
+    .tap_container ul{
+      font-size: 0;
+      padding: 0;
+    }
+    .tap_selected{
+      border: top 2px solid orange;
+      border-bottom: 0 !important;
+      border: 1px solid lightgray;
+    }
+    .display-none{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+</body>
+  <div class="tap_container">
+  <ul>
+  <li class="tap_button tap_selected">탭1</li>
+  <li class="tap_button tap_selected">탭2</li>
+  <li class="tap_button tap_selected">탭3</li>
+  </ul>
+  <div class="tap_content display-none">
+    탭 1의 내용
+  </div>
+  <div class="tap_content display-none">
+    탭 2의 내용
+  </div>
+  <div class="tap_content display-none">
+    탭 3의 내용
+  </div>
+</div>
+
+
+
+  <script>
+
+    var 탭버튼갯수 = document.querySelectorAll('.tap_button').length
+    var 탭내용갯수 = document.querySelectorAll('.tap_content')
+
+    for(let 순서= 0;순서< 탭버튼갯수;순서++){
+      document.querySelectorAll('tap_button')[순서].addEventListener('click',function(){
+        for(let idx=0;idx<탭내용갯수;idx++){
+      for(let i=0;i<탭버튼갯수;i++){
+        document.querySelectorAll('.tap_content')[i].classList.add('display-none')
+        document.querySelectorAll('.tap_button')[i].classList.remove('tap-selected')
+      }
+      document.querySelectorAll('.tap_content')[순서].classList.remove('display-none')
+      document.querySelectorAll('.tap_button')[순서].classList.add('tap_selected')
+        }
+      })
+    }
+// 챗gpt한테 물어본거
+//document.querySelectorAll('.tap_button').forEach(function(button, index) {
+//  button.addEventListener('click', function() {
+    // 모든 tap_content를 숨김
+//    document.querySelectorAll('.tap_content').forEach(function(content) {
+//      content.classList.add('display-none');
+//    });
+    // 모든 tap_button의 tap-selected 클래스 제거
+//    document.querySelectorAll('.tap_button').forEach(function(btn) {
+//      btn.classList.remove('tap_selected');
+//    });
+    // 선택된 탭 버튼에 tap-selected 클래스 추가
+//    this.classList.add('tap_selected');
+    // 선택된 탭 버튼에 해당하는 tap_content를 표시
+//   document.querySelectorAll('.tap_content')[index].classList.remove('display-none');
+//  });
+//});
+
+  </script>
+</body>
+</html>

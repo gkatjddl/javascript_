@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .slider-container{
+      overflow: hidden;
+    }
+    .slider-img{
+      display: flex;
+      width: 300%;
+      transition: all 1st;
+    }
+    .box{
+      width: 100%;
+    }
+    .box img{
+      width: 100%;
+    }
+    .slider-first{
+      margin-left: 0;
+    }
+    .slider-seconse{
+      margin-top:0;
+      margin-left: -100%;
+    }
+    .slider-third{
+      margin-left: -200%;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider-contniner">
+    <div class="slider-img">
+      <div class="box" alt="">
+        <img src="img/ibara.webp">
+      <div class="box" alt="">
+        <img src="img/sakura.webp">
+      <div class="box" alt="">
+          <img src="img/tonikakuhana.webp">
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button id="slide-btn-1">1</button>
+  <button id="silde-btn-2">2</button>
+  <button id="silde-btn-3">3</button>
+
+  <script>
+    document.getElementById('slide-btn-1').addEventListener('click',function(){
+      // srider-img 에다가 slider-first 클래스를 추가해
+      document.querySelector('.slider-img').classList.remve('slider-first slider-seconse slider-third')
+    })
+    document.getElementById('slide-btn-2').addEventListener('click',function(){
+      // srider-img 에다가 slider-seconse 클래스를 추가해
+    })
+    document.getElementById('slide-btn-3').addEventListener('click',function(){
+      // srider-img 에다가 slider-third 클래스를 추가해
+    })
+
+  </script>
+</body>
+</html>

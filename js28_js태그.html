@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트로 HTML태그 만들기</title>
+  <style>
+    .font-yellow{
+      color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <button id="add-content">글추가</button>
+  <div id="글추가box"></div>
+  <script>
+  //  자바스크립트로 태그추가 방법1
+  //  요소만들기 라는 함수로 태그만들수 있음
+  var p태그 =  document.createElement('p')      //p태그만들준비 완료
+  p태그.innerHTML = '안녕하세요'
+  document.getElementById('box').appendChild(p태그)
+
+  //  자바스크립트로 태그추가 방법2
+  //  변수에 HTML태그처럼 넣어버리기
+  var box코딩 = `
+  <p class="font-yellow">자바스크립트로 태그추가</p>
+  `
+  document.getElementById('box').insertAdjacentHTML('beforeend',box코딩)
+  document.getElementById('box').insertAdjacentHTML('beforeend',box코딩)
+  document.getElementById('box').insertAdjacentHTML('beforeend',box코딩)
+  //  document.getElementById('box').innerHTML = box코딩
+
+  // 글추가 버튼을 누를때마다 글을 추가하기
+  var 글추가코딩 =`
+    <h3>몰?루</h3>
+  `
+  document.getElementById('add-content').addEventListener('click',()=>{
+    document.getElementById('글추가box').insertAdjacentHTML('beforeend',글추가코딩)
+  })
+  </script>
+</body>
+</html>

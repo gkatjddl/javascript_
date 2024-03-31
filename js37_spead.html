@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // spread operate: 분할 기능(배열과 오브젝트를 분할
+    // ... 으로 사용
+    var 배열 = ["가","나","다"]
+    console.log(...배열)
+  
+    var 문자열 = '문자열도 사실은 배열이었다?'
+    console.log(...문자열)
+
+    // 히히 나는 배열2에다가 배열을 넣어야지
+    var 배열2 = 배열
+
+    var 정수1 = 1
+    var 정수2 = 정수1
+    
+
+
+    function 함수이름(...배열을만든다){
+      console.log(배열을만든다)
+      console.log(배열을만든다[0])
+    }
+    함수이름(1,2,3,4,)
+    함수이름('가','나')
+  </script>
+  
+</body>
+</html>

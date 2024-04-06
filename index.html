@@ -24,13 +24,13 @@
           </div>
           <div class="second-nav">
             <ul>
-              <li><a class="down_show" href="#">COFEE</a></li>
-              <li><a class="down_show" href="#">MENU</a></li>
-              <li><a class="down_show" href="#">STORE</a></li>
-              <li><a class="down_show" href="#">RESPONSIBILTY</a></li>
-              <li><a class="down_show" href="#">STARBUCKS REWARDS</a></li>
-              <li><a class="down_show" href="#">COROR SALES</a></li>
-              <li><a class="down_show" href="#">WHAT'S NEW</a></li>
+              <li><a class="down-show" href="#">COFEE</a></li>
+              <li><a class="down-show" href="#">MENU</a></li>
+              <li><a class="down-show" href="#">STORE</a></li>
+              <li><a class="down-show" href="#">RESPONSIBILTY</a></li>
+              <li><a class="down-show" href="#">STARBUCKS REWARDS</a></li>
+              <li><a class="down-show" href="#">COROR SALES</a></li>
+              <li><a class="down-show" href="#">WHAT'S NEW</a></li>
             </ul>
           </div>
 
@@ -124,11 +124,11 @@
   </footer>
 
   <script>
-    document.querySelectorAll('.down_show')[0].addEventListener('mouseenter',(e)=>{
+    document.querySelectorAll('.down-show')[0].addEventListener('mouseenter',(e)=>{
       // 마우스가 들어갔을때 down-show의 높이를 변경하고 visble로 변경
       document.querySelector('.down-nav').classList.add('down-nav-show')
     })
-    document.querySelectorAll('.down_show')[0].addEventListener('mouseleave',(e)=>{
+    document.querySelectorAll('.down-show')[0].addEventListener('mouseleave',(e)=>{
       // 마우스가 나왔을때 down-show의 높이를 변경하고 unvisble로 변경
       document.querySelector('.down-nav').classList.remove('down-nav-show')
     })

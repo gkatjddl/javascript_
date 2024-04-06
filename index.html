@@ -8,14 +8,16 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <!-- div ==> nav -->
   <nav>
     <div class="top-nav">
       <div class="top-nav-inner">
-        <img src="./img/logo.png" width='85px' height="85px" >
+        <img src="./img/logo.png" width="85px" height="85px">
+
         <div class="right-nav">
           <div class="first-nav">
             <ul>
-              <li><a href="#">Sing In</a></li>
+              <li><a href="#">Sign In</a></li>
               <li><a href="#">My Starbucks</a></li>
               <li><a href="#">Customer Service & Ideas</a></li>
               <li class="no-border"><a href="#">Find a Store</a></li>
@@ -24,16 +26,15 @@
           </div>
           <div class="second-nav">
             <ul>
-              <li><a class="down-show" href="#">COFEE</a></li>
-              <li><a class="down-show" href="#">MENU</a></li>
-              <li><a class="down-show" href="#">STORE</a></li>
-              <li><a class="down-show" href="#">RESPONSIBILTY</a></li>
-              <li><a class="down-show" href="#">STARBUCKS REWARDS</a></li>
-              <li><a class="down-show" href="#">COROR SALES</a></li>
-              <li><a class="down-show" href="#">WHAT'S NEW</a></li>
+              <li class="down-show"><a href="#">COFFEE</a></li>
+              <li class="down-show"><a href="#">MENU</a></li>
+              <li class="down-show"><a href="#">STORE</a></li>
+              <li class="down-show"><a href="#">RESPONSIBILITY</a></li>
+              <li class="down-show"><a href="#">STARBUCKS REWARDS</a></li>
+              <li class="down-show"><a href="#">CORPORATE SALES</a></li>
+              <li class="down-show"><a href="#">WHAT'S NEW</a></li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>
@@ -44,7 +45,7 @@
           <ul>
             <li>스타벅스 원두</li>
             <li>스타벅스 비아</li>
-            <li>스타벅스엣홈 by 캡슐</li>
+            <li>스타벅스앳홈 by 캡슐</li>
             <li>나와 어울리는 커피</li>
           </ul>
         </div>
@@ -55,48 +56,24 @@
             <li>최상의 아라비카 원두</li>
             <li>스타벅스 로스트 스펙트럼</li>
             <li>스타벅스 디카페인</li>
+            <li>스타벅스 디카페인</li>
+            <li>스타벅스 디카페인</li>
           </ul>
         </div>
-        <div>          
-          <h3>스타벅스 리저브</h3>
-          <ul>
-            <li>RESERVE MAGAZINE</li>
-          </ul>
-        </div>
-        <div>
-          <h3>에스프레소 음료</h3>
-          <ul>
-            <li>도피오</li>
-            <li>에스프레소 마끼아또</li>
-            <li>아메리카노</li>
-            <li>마끼아또</li>
-            <li>카푸치노</li>
-            <li>라떼</li>
-            <li>모카</li>
-          </ul>
-        </div>
-        <div>
-          <h3>최상의 커피를 즐기는법</h3>
-          <ul>
-            <li>스타벅스 원두</li>
-            <li>스타벅스 비아</li>
-            <li>스타벅스엣홈 by 캡슐</li>
-            <li>나와 어울리는 커피</li>
-          </ul>
-        </div>
+        
       </div>
     </div>
   </nav>
-  
+
   <div class="dump"></div>
   <div class="ads"></div>
 
   <div class="section-1">
-    <img src="img/item2.png" alt="" class="img-text">
+    <img src="./img/item2.png" alt="" class="img-text">
     <button class="section-1-btn">자세히 보기</button>
-    <img src="img/item3.png" alt="" class="product1">
-    <img src="img/item4.png" alt="" class="product2">
-    <img src="img/item5.png" alt="" class="product3">
+    <img src="./img/item3.png" alt="" class="product1">
+    <img src="./img/item4.png" alt="" class="product2">
+    <img src="./img/item5.png" alt="" class="product3">
   </div>
   <div class="section-2">
     <div class="back-black">
@@ -106,10 +83,15 @@
         <li class="display-none">이용약관</li>
         <li class="display-none">점검 안내</li>
       </ul>
+      <div class="back-black-icon">
+        <i class="fa-solid fa-plus"></i>
+      </div>
     </div>
-    <p></p>
     <div class="back-white">
-      <h3>스타벅스 프로모션</h3>
+      <p>스타벅스 프로모션</p>
+      <div class="back-white-icon">
+        <i class="fa-solid fa-angle-down"></i>
+      </div>
     </div>
   </div>
   <div class="section-3"></div>
@@ -118,24 +100,54 @@
   <div class="section-6"></div>
   <div class="section-7"></div>
   <div class="section-8"></div>
-  
+
   <footer>
 
   </footer>
 
   <script>
-    document.querySelectorAll('.down-show')[0].addEventListener('mouseenter',(e)=>{
-      // 마우스가 들어갔을때 down-show의 높이를 변경하고 visble로 변경
-      document.querySelector('.down-nav').classList.add('down-nav-show')
-    })
-    document.querySelectorAll('.down-show')[0].addEventListener('mouseleave',(e)=>{
-      // 마우스가 나왔을때 down-show의 높이를 변경하고 unvisble로 변경
-      document.querySelector('.down-nav').classList.remove('down-nav-show')
+    var a_flag = [false, false, false, false, false, false, false]
+    var down_flag = false;
+
+    document.querySelectorAll('.down-show')[0].addEventListener('mouseenter', (e)=>{
+      // 마우스가 들어갔을 때 down-nav 의 높이를 변경하고, visible로 변경
+      a_flag[0] = true;
     })
 
-    document.querySelectorAll('.top-nav-inner').addEventListener('mouseover',(e)=>{
-      document.querySelector('.down-nav').classList.add('down-nav-show')
+    document.querySelectorAll('.down-show')[0].addEventListener('mouseleave', (e)=>{
+      // 마우스가 나갔을 때 down-nav 의 높이를 원래대로, hidden 으로
+
     })
+
+    document.querySelector('.top-nav-inner').addEventListener('mouseover', ()=>{
+      a_flag[0] = false;
+    })
+
+    document.querySelector('.down-nav').addEventListener('mouseleave', (e)=>{
+      down_flag = true;
+      a_flag[0] = false;
+    })
+
+    document.querySelector('.down-nav').addEventListener('mouseleave', (e)=>{
+      down_flag = false;
+    })
+
+    // 50ms 로 변수값을 체크를 해서 true면 down-nav를 보이게, false면 안보이게
+    // 50ms마다 동작
+    setInterval(function(){
+      if(a_flag[0] == false && down_flag == false){
+        // 안보이게
+        document.querySelector('.down-nav').classList.remove('down-nav-show')
+      document.querySelectorAll('.second-nav a')[0].classList.remove('second-nav-show')
+      }else{
+        // 보이게
+        document.querySelector('.down-nav').classList.add('down-nav-show')
+      document.querySelectorAll('.second-nav a')[0].classList.add('second-nav-show')
+      }
+    }, 50)
+
+
   </script>
+
 </body>
 </html>
